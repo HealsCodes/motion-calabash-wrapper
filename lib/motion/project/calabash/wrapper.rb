@@ -27,24 +27,30 @@ require 'rake/task_arguments'
 require 'motion-calabash'
 
 namespace :features do
-  desc 'Execute calabash:run in a RubyMine compatible way (also allowing to pass the DEVICE_TARGET via :target)'
+  desc 'Execute calabash:run on XCode 6.1 / inside RubyMine'
   task :run, [:target] do |t, args|
 
-    cc_args = ENV['args'] || '--format Teamcity::Cucumber::Formatter --color'
-    target  = args[:target] || ENV['DEVICE_TARGET'] || nil
+    if ENV['CUCUMBER_FORMAT']
+      cc_args = "--format #{ENV['CUCUMBER_FORMAT']} #{ENV['args']}"
+    else
+      cc_args = ENV['args']
+    end
 
-    unless ARGV.select { |v| v =~ /device|(?:iPhone (?:4s?|5s?|6|6 Plus)|iPad (?:2|Air|Retina)) (\d.\d Simulator)/ }
-      # for whatever reason motion-calabash requires the device target to be a real ARGV element
-      # instead of the more portable task argument - work around this..
+    # for whatever reason motion-calabash requires the device target to be a real ARGV element
+    # instead of the more portable task argument - work around this..
+    target = ARGV.select { |v| v =~ /device|(?:iPhone (?:4s?|5s?|6|6 Plus)|iPad (?:2|Air|Retina)) \(\d.\d Simulator\)/ }.last
+    
+    if target.nil?
+      target ||= args[:target] || ENV['DEVICE_TARGET'] || nil  
       if target.nil?
-        App.warn( 'No device / simulator specified defaulting to "iPhone 6 (8.1 Simulator)"' )
+        App.warn( 'No device / simulator specified defaulting to \'iPhone 6 (8.1 Simulator)\'' )
         target = 'iPhone 6 (8.1 Simulator)'
       end
       ARGV.push( target )
     end
 
-    ENV['args'] ||= cc_args
-    ENV['DEVICE_TARGET'] ||= ARGV.last
+    ENV['args'] = cc_args
+    ENV['DEVICE_TARGET'] = target
 
     Rake::Task['calabash:run'].execute
   end
