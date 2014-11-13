@@ -7,10 +7,10 @@ Gem::Specification.new do |s|
   s.author = 'René Köcher'
   s.email = 'shirk@bitspin.org'
   s.homepage = 'http://www.bitspin.org'
-  s.version = '0.11.4.0.1'
+  s.version = '0.11.4.1.0.1'
   s.files = `git ls-files`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency("motion-calabash", "0.11.4")
+  s.add_dependency("motion-calabash", "0.11.4.1")
 
 end
