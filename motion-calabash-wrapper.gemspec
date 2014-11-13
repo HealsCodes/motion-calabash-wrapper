@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.author = 'René Köcher'
   s.email = 'shirk@bitspin.org'
   s.homepage = 'http://www.bitspin.org'
-  s.version = '0.11.4.0'
+  s.version = '0.11.4.0.1'
   s.files = `git ls-files`.split("\n")
   s.require_paths = ["lib"]
 

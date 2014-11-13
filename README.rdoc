@@ -38,3 +38,8 @@ You can specify the target device by either using the +target+ parameter, passin
   $ rake features:run[iPhone 6 (8.1 Simulator)]
   $ rake calabash:run 'iPhone 6 (8.1 Simulator)'
   $ rake calabash:run 'iPhone 6 (8.1 Simulator)' args="features/my_first.feature --tags @a"
+
+== Versioning
+
+motion-calabash-wrapper is versioned to track the matching +motion-calabash+ gem.
+For example version +0.11.4.*.*+ will use +motion-calabash+ +0.11.4+.
