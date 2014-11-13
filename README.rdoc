@@ -1,0 +1,40 @@
+= motion-calabash-wrapper
+
+Enhancements to smooth out the rough edges when using motion-calabash with XCode 6.1 and RubyMine.
+
+For information about Calabash see: http://calaba.sh
+For information about motion-calabash see: https://github.com/calabash/motion-calabash
+
+== Requirements
+
+* RubyMotion 1.0 or greater (see http://www.rubymotion.com).
+* XCode 6.1
+
+== Installation
+
+  $ (sudo) gem install motion-calabash-wrapper
+
+== Setup
+
+1. Edit the +Rakefile+ of your RubyMotion project and add the following require lines.
+
+     require 'rubygems'
+     require 'motion-calabash-wrapper'
+
+If you're using a Gemfile in your project (which you probably should), please also add `gem 'motion-calabash-wrapper'` (possibly a version) to this file.
+
+
+== Usage
+
+motion-calabash-wrapper introduces a +features+ Rake-task namespace to your project.
+The namespace currently contains one task: +run+.
+
+The +run+ task can be used to run your suite of Calabash tests on your development build. You can run on simulator or on a USB connected device.
+
+You can specify the target device by either using the +target+ parameter, passing the target as last argument to rake or by exporting the DEVICE_TARGET environment variable.
+
+  $ rake features:run
+  $ rake features:run device
+  $ rake features:run[iPhone 6 (8.1 Simulator)]
+  $ rake calabash:run 'iPhone 6 (8.1 Simulator)'
+  $ rake calabash:run 'iPhone 6 (8.1 Simulator)' args="features/my_first.feature --tags @a"
