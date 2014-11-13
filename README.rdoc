@@ -2,13 +2,21 @@
 
 Enhancements to smooth out the rough edges when using motion-calabash with XCode 6.1 and RubyMine.
 
-For information about Calabash see: http://calaba.sh
-For information about motion-calabash see: https://github.com/calabash/motion-calabash
+* For information about Calabash see: http://calaba.sh
+* For information about motion-calabash see: https://github.com/calabash/motion-calabash
 
 == Requirements
 
 * RubyMotion 1.0 or greater (see http://www.rubymotion.com).
 * XCode 6.1
+
+=== pre-release motion-calabash
+
+The current version (at the time of this writing 0.11.4.1.0.1) requires a yet-to-be-released version of +motion-calabash+
+
+Until this version becomes official (see: https://github.com/calabash/motion-calabash/pull/15) the source is available from my fork at https://github.com/Shirk/motion-calabash/tree/xcode-6.1 
+
+Alternatively a gem can be obtained by adding +http://bitspin-productions.net/gems/pre-release/+ as a GEM source.    
 
 == Installation
 
