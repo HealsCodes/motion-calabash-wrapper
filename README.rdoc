@@ -16,7 +16,7 @@ The current version (at the time of this writing 0.11.4.1.0.1) requires a yet-to
 
 Until this version becomes official (see: https://github.com/calabash/motion-calabash/pull/15) the source is available from my fork at https://github.com/Shirk/motion-calabash/tree/xcode-6.1 
 
-Alternatively a gem can be obtained by adding +http://bitspin-productions.net/gems/pre-release/+ as a GEM source.    
+Alternatively a gem can be obtained by adding 'http://bitspin-productions.net/gems/pre-release' as a GEM source.    
 
 == Installation
 
